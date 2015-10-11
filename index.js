@@ -158,10 +158,12 @@ function getGameState() {
   var leftDude = toGPS(leftStart, left.y);
   leftDude.width = left.width * (gameWidth / maxWidth);
   leftDude.height = left.height * (gameHeight / maxHeight);
+  leftDude.name = left.name;
 
   var rightDude = toGPS(rightStart, right.y);
   rightDude.width = right.width * (gameWidth / maxWidth);
   rightDude.height = right.height * (gameHeight / maxHeight);
+  rightDude.name = right.name;
 
   var score = {
     left: leftScore,
@@ -181,9 +183,11 @@ module.exports = {
   registerPlayer: function (id, loc) {
     if (Object.keys(players).length == 0) {
       players[id] = left;
+      left.name = id;
       leftStart = loc;
     } else {
       players[id] = right;
+      right.name = id;
       rightStart = loc;
       createGame(leftStart.lat, leftStart.lng, rightStart.lat, rightStart.lng);
     }
