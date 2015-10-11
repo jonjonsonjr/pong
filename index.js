@@ -22,6 +22,7 @@ var alpha;
 var players = {};
 
 var updateFn;
+var interval;
 
 var left = {
   x: 0,
@@ -106,7 +107,7 @@ function createGame(leftLat, leftLng, rightLat, rightLng) {
 
   reset();
 
-  setInterval(function () {
+  interval = setInterval(function () {
     ball.move();
     updateFn(getGameState());
   }, 100);
@@ -196,6 +197,7 @@ module.exports = {
     updateFn = cb;
   },
   reset: function () {
+    clearInterval(interval);
     players = {};
     leftScore = 0;
     rightScore = 0;
