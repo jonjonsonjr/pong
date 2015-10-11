@@ -126,7 +126,7 @@ function getDistance(lat, lng) {
 function toGPS(start, y) {
   var d = y - (maxHeight / 2);
   var dl = d * (gameHeight / maxHeight);
-  var angle = theta - (Math.PI / 2)
+  var angle = theta - (Math.PI / 2);
   var dx = dl * Math.cos(angle);
   var dy = dl * Math.sin(angle);
 
@@ -171,7 +171,8 @@ function getGameState() {
     left: leftDude,
     right: rightDude,
     ball: getBallGPS(),
-    score: score
+    score: score,
+    theta: theta
   };
 }
 
