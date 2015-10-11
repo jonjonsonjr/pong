@@ -21,6 +21,8 @@ var alpha;
 
 var players = {};
 
+var updateFn;
+
 var left = {
   x: 0,
   y: maxHeight / 2,
@@ -106,6 +108,7 @@ function createGame(leftLat, leftLng, rightLat, rightLng) {
 
   setInterval(function () {
     ball.move();
+    updateFn(getGameState());
   }, 100);
 }
 
@@ -189,7 +192,7 @@ module.exports = {
     player.y = Math.min(maxHeight - player.height, Math.max(0, (maxHeight / 2) + d));
   },
   onUpdate: function (cb) {
-    cb(getGameState());
+    updateFn = cb;
   },
   reset: function () {
     players = {};
