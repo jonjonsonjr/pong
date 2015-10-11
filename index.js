@@ -144,7 +144,7 @@ function getBallGPS() {
 
   return {
     lat: leftStart.lat + dlat,
-    lng: leftStart.lng + lng,
+    lng: leftStart.lng + dlng,
     width: ball.width * (gameWidth / maxWidth),
     height: ball.height * (gameHeight / maxHeight)
   };
